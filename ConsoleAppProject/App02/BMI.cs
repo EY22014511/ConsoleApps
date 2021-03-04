@@ -31,8 +31,6 @@ namespace ConsoleAppProject.App02
         {
             outputheading();
             SelectChoice();
-            CalculateImperialBMI();
-            CalculateMetricBMI();
             Result();
             BAME();
         }
@@ -63,7 +61,7 @@ namespace ConsoleAppProject.App02
                 feet = Convert.ToDouble(Console.ReadLine());
                 Console.WriteLine("Enter your height in inches:");
                 inches = Convert.ToDouble(Console.ReadLine());
-
+                CalculateImperialBMI();
             }
             else if (input.Equals("metric"))
             {
@@ -72,6 +70,7 @@ namespace ConsoleAppProject.App02
                 kg = Convert.ToDouble(Console.ReadLine());
                 Console.WriteLine("Enter your height in metres:");
                 metres = Convert.ToDouble(Console.ReadLine());
+                CalculateMetricBMI();
             }
             else
             {
@@ -84,9 +83,11 @@ namespace ConsoleAppProject.App02
         //Method for calculating the BMI of the user
         public double CalculateImperialBMI()
         {
-            double lbs2 = ((stones * 14) + lbs);
-            double heightimperial = ((feet * 12) + inches);
-            BMIoutput = ((lbs2 * 703) / (heightimperial * heightimperial));
+            double pounds = stones * 14;
+            double weightimperial = lbs + pounds;
+
+            double height = ((feet * 12) + inches);
+            BMIoutput = ((weightimperial * 703) / (height * height));
             return BMIoutput;
         }
 
