@@ -97,6 +97,7 @@ namespace ConsoleAppProject.App02
             return BMIoutput;
         }
 
+        //method for printing out their bmi
         public void Result()
         {
             if (BMIoutput < UNDERWEIGHT)
@@ -125,6 +126,7 @@ namespace ConsoleAppProject.App02
             }
         }
 
+        //method for printing out a warning for people who are of the thnic minority
         public void BAME()
         {
             Console.WriteLine("If you are Black, Asian or other minority ethnic groups, you have a higher risk.\n" +
