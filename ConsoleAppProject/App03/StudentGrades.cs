@@ -6,33 +6,77 @@ using ConsoleAppProject.Helpers;
 namespace ConsoleAppProject.App03
 {
     /// <summary>
-    /// At the moment this class just tests the
-    /// Grades enumeration names and descriptions
+    /// 
+    /// 
     /// </summary>
     public class StudentGrades
     {
-        public void TestGradesEnumeration()
+        public const int LowestMark = 0;
+        public const int LowestD = 40
+        public const int LowestC = 50;
+        public const int LowestB = 60;
+        public const int LowestA = 70;
+        public const int HighestMark = 100;
+
+
+
+        public string [] Students { get; set; }
+
+        public int [] Marks { get; set; }
+
+        public int [] GradeProfile { get; set; }
+
+        public double Mean { get; set; }
+
+        public int Minimum { get; set; }
+
+        public int Maximum { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public StudentGrades()
         {
-            Grades grade = Grades.C;
+            Students = new string[]
+                {
+                    "David", "Charlie", "Bill", "Tom", "Liam", "Eddy", "Mcihael", "Alesha", "Chelsea", "Shanice"
+                };
 
-            Console.WriteLine($"Grade = {grade}");
-            Console.WriteLine($"Grade No = {(int)grade}");
+            GradeProfile = new int[(int)Grades.A + 1];
+            Marks = new int[Students.length];
+        }
 
-            Console.WriteLine("\nDiscovered by Andrei!\n");
-            var gradeName = grade.GetAttribute<DisplayAttribute>().Name;
-            Console.WriteLine($"Grade Name = {gradeName}");
+        /// <summary>
+        /// 
+        /// </summary>
+        public void InputMarks()
+        {
+            throw new NotImplementedException();
+        }
 
-            var gradeDescription = grade.GetAttribute<DescriptionAttribute>().Description;
-            Console.WriteLine($"Grade Description = {gradeDescription}");
+        /// <summary>
+        /// 
+        /// </summary>
+        public void OutputMarks()
+        {
+            throw new NotImplementedException();
+        }
 
-            string testDescription = EnumHelper<Grades>.GetDescription(grade);
-            string testName = EnumHelper<Grades>.GetName(grade);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="mark"></param>
+        /// <returns></returns>
+        public Grade ConvertToGrade(int mark)
+        {
+            throw new NotImplementedException();
+        }
 
-            Console.WriteLine();
-            Console.WriteLine("Discovered by Derek Using EnumHelper\n");
-            Console.WriteLine($"Name = {testName}");
-            Console.WriteLine($"Description = {testDescription}");
-
+        public void CalculateStats()
+        {
+            throw new NotImplementedException();
         }
     }
+
+    
 }
