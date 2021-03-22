@@ -136,16 +136,60 @@ namespace ConsoleAppProject.App03
         }
 
         /// <summary>
-        /// the method for calculating the minimum, maximum, and mean of the marks
+        /// the method for calculating and outputing the minimum, maximum, and mean of the marks
         /// </summary>
         public void CalculateStats()
         {
-            throw new NotImplementedException();
+            Minimum = Marks[0];
+            Maximum = Marks[0];
+            
+            double total = 0;
+
+            foreach (int mark in Marks)
+            {
+                if (mark > Maximum) Maximum = mark;
+                if (mark < Minimum) Minimum = mark;
+                total += mark;
+            }
+            Mean = total / Marks.Length;
+
+            Console.WriteLine($"The Minimum Mark is: {Minimum}\nThe Maximum Mark is: {Maximum}\nThe Average Mark is: {Mean}");
         }
 
+        /// <summary>
+        /// This method calculates the grade profile
+        /// </summary>
         public void CalculateGradeProfile()
         {
+            for (int i = 0; i < GradeProfile.Length; i++)
+            {
+                GradeProfile[i] = 0;
+            }
 
+            foreach (int mark in Marks)
+            {
+                Grades grade = ConvertToGrade(mark);
+                GradeProfile[(int)grade]++;
+            }
+
+            OutputGradeProfile();
+        }
+
+        /// <summary>
+        /// this method outputs the grade profile
+        /// </summary>
+        public void OutputGradeProfile()
+        {
+            Grades grade = Grades.F;
+            Console.WriteLine();
+
+            foreach (int count in GradeProfile)
+            {
+                int percentage = count * 100 / Marks.Length;
+                Console.WriteLine($"Grade {grade} {percentage}% Count {count}");
+                grade++;
+            }
+            Console.WriteLine();
         }
     }
 
