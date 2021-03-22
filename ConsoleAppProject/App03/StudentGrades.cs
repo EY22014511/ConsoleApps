@@ -84,7 +84,7 @@ namespace ConsoleAppProject.App03
         /// </summary>
         public void InputMarks()
         {
-            ConsoleHelper.OutputTitle("Inputting Student Marks");
+            ConsoleHelper.OutputTitle("Inputting Student Marks...");
 
             int index = 0;
             foreach (string student in Students)
@@ -100,7 +100,7 @@ namespace ConsoleAppProject.App03
         /// </summary>
         public void OutputMarks()
         {
-            ConsoleHelper.OutputTitle("Outputting student marks and grades");
+            ConsoleHelper.OutputTitle("Outputting student marks and grades...");
             for (int index = 0; index < Marks.Length; index++)
             {
                 Grades grade = ConvertToGrade(Marks[index]);
@@ -140,6 +140,7 @@ namespace ConsoleAppProject.App03
         /// </summary>
         public void CalculateStats()
         {
+            ConsoleHelper.OutputTitle("Calculating Stats...");
             Minimum = Marks[0];
             Maximum = Marks[0];
             
@@ -161,6 +162,7 @@ namespace ConsoleAppProject.App03
         /// </summary>
         public void CalculateGradeProfile()
         {
+            ConsoleHelper.OutputTitle("Calculating Grade Profile...");
             for (int i = 0; i < GradeProfile.Length; i++)
             {
                 GradeProfile[i] = 0;
@@ -180,6 +182,7 @@ namespace ConsoleAppProject.App03
         /// </summary>
         public void OutputGradeProfile()
         {
+            ConsoleHelper.OutputTitle("Outputting Grade Profile...");
             Grades grade = Grades.F;
             Console.WriteLine();
 
