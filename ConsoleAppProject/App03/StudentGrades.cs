@@ -49,8 +49,30 @@ namespace ConsoleAppProject.App03
         public void Run()
         {
             ConsoleHelper.OutputHeading("App03 Student Grades Program");
-            InputMarks();
-            OutputMarks();
+
+            string[] choices = new string[]
+            {
+                "Input Marks",
+                "Output Marks",
+                "Calculate Stats",
+                "Calculate Grade Profile",
+                "Quit"
+            };
+
+            bool finished = false;
+            while(!finished)
+            {
+                int choice = ConsoleHelper.SelectChoice(choices);
+
+                switch (choice)
+                {
+                    case 1: InputMarks(); break;
+                    case 2: OutputMarks(); break;
+                    case 3: CalculateStats(); break;
+                    case 4: CalculateGradeProfile(); break;
+                    case 5: finished = true; break;
+                }
+            }
         }
 
         /// <summary>
@@ -77,23 +99,44 @@ namespace ConsoleAppProject.App03
             ConsoleHelper.OutputTitle("Outputting student marks and grades");
             for (int index = 0; index < Marks.Length; index++)
             {
-                Console.WriteLine($"{Students[index]} {Marks[index]} ");
+                Grades grade = ConvertToGrade(Marks[index]);
+                Console.WriteLine($"{Students[index]} {Marks[index]} {grade}");
             }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="mark"></param>
-        /// <returns></returns>
         public Grades ConvertToGrade(int mark)
         {
+            if (mark > 70)
+            {
+                return Grades.A;
+            }
+            else if (mark >= 60)
+            {
+                return Grades.B;
+            }
+            else if (mark >= 50)
+            {
+                return Grades.C;
+            }
+            else if (mark >= 40)
+            {
+                return Grades.D;
+            }   
+
             return Grades.F;
         }
 
         public void CalculateStats()
         {
             throw new NotImplementedException();
+        }
+
+        public void CalculateGradeProfile()
+        {
+
         }
     }
 
