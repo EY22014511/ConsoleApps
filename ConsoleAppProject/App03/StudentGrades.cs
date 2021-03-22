@@ -6,8 +6,9 @@ using ConsoleAppProject.Helpers;
 namespace ConsoleAppProject.App03
 {
     /// <summary>
-    /// 
-    /// 
+    /// Application for inputting, converting and outputting marks
+    /// and grades of students, as well as calculating the meanm, minimum
+    /// and maximum marks
     /// </summary>
     public class StudentGrades
     {
@@ -33,19 +34,22 @@ namespace ConsoleAppProject.App03
         public int Maximum { get; set; }
 
         /// <summary>
-        /// 
+        /// an array of 10 students who's marks will be converted
         /// </summary>
         public StudentGrades()
         {
             Students = new string[]
                 {
-                    "David", "Charlie", "Bill", "Tom", "Liam", "Eddy", "Mcihael", "Alesha", "Chelsea", "Shanice"
+                    "David", "Charlie", "Bill", "Tom", "Liam", "Eddy", "Michael", "Alesha", "Chelsea", "Shanice"
                 };
 
             GradeProfile = new int[(int)Grades.A + 1];
             Marks = new int[Students.Length];
         }
 
+        /// <summary>
+        /// the run method for the application
+        /// </summary>
         public void Run()
         {
             ConsoleHelper.OutputHeading("App03 Student Grades Program");
@@ -70,13 +74,13 @@ namespace ConsoleAppProject.App03
                     case 2: OutputMarks(); break;
                     case 3: CalculateStats(); break;
                     case 4: CalculateGradeProfile(); break;
-                    case 5: finished = true; break;
+                    case 5: finished = true;break;
                 }
             }
         }
 
         /// <summary>
-        /// 
+        /// the method for the marks to be entered and stored per student
         /// </summary>
         public void InputMarks()
         {
@@ -92,7 +96,7 @@ namespace ConsoleAppProject.App03
         }
 
         /// <summary>
-        /// 
+        /// the method for the marks and the grades of each student to be displayed
         /// </summary>
         public void OutputMarks()
         {
@@ -105,7 +109,7 @@ namespace ConsoleAppProject.App03
         }
 
         /// <summary>
-        /// 
+        /// the method for converting each mark to a specific grade
         /// </summary>
         public Grades ConvertToGrade(int mark)
         {
@@ -124,11 +128,16 @@ namespace ConsoleAppProject.App03
             else if (mark >= 40)
             {
                 return Grades.D;
-            }   
-
-            return Grades.F;
+            }
+            else 
+            {
+                return Grades.F;
+            }            
         }
 
+        /// <summary>
+        /// the method for calculating the minimum, maximum, and mean of the marks
+        /// </summary>
         public void CalculateStats()
         {
             throw new NotImplementedException();
