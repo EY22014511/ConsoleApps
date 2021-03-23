@@ -113,7 +113,7 @@ namespace ConsoleAppProject.App03
         /// </summary>
         public Grades ConvertToGrade(int mark)
         {
-            if (mark > 70)
+            if (mark >= 70)
             {
                 return Grades.A;
             }
