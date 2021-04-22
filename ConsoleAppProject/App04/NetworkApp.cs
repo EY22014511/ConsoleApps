@@ -18,7 +18,7 @@ namespace ConsoleAppProject.App04
                 {
                     "Post Message", "Post Image", "" +
                     "Display All Posts", "Display by Author", "" +
-                    "", "Add Comment(s)", "Like a Post", "" +
+                     "Add Comment(s)", "Like a Post", "" +
                     "Unlike a Post", "Remove a Post", "Quit"
                 };
 
