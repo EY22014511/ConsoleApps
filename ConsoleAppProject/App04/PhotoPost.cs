@@ -19,10 +19,6 @@ namespace ConsoleAppProject.App04
         // a one line image caption
         public String Caption { get; set; }
 
-        private int likes;
-
-        private readonly List<String> comments;
-
         ///<summary>
         /// Constructor for objects of class PhotoPost.
         ///</summary>
@@ -39,6 +35,15 @@ namespace ConsoleAppProject.App04
         {
             this.Filename = filename;
             this.Caption = caption;
-        }        
+        }
+
+        public override void Display()
+        {
+            Console.WriteLine($"     Filename: [{Filename}]");
+            Console.WriteLine($"     Caption: {Caption}");
+            
+            
+            base.Display();
+        }
     }
 }

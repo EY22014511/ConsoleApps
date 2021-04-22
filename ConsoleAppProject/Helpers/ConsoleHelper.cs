@@ -1,5 +1,5 @@
 ﻿using System;
-
+namespace ConsoleAppProject { }
 namespace ConsoleAppProject.Helpers
 {
 
