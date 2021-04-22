@@ -11,16 +11,12 @@ namespace ConsoleAppProject.App04
         private int likes;
         private readonly List<String> comments;
 
-        /// <summary>
-        /// 
-        /// </summary>
+       
         public String Username { get; }
 
         public DateTime Timestamp { get; }
 
-        /// <summary>
-        /// 
-        /// </summary>
+        
         public Post(string author)
         {
             instances++;
@@ -35,7 +31,7 @@ namespace ConsoleAppProject.App04
         }
 
         /// <summary>
-        /// 
+        /// adds the likes when a post is liked
         /// </summary>
         public void Like()
         {
@@ -43,7 +39,7 @@ namespace ConsoleAppProject.App04
         }
 
         /// <summary>
-        /// 
+        /// minuses the likes when a post is unliked
         /// </summary>
         public void Unlike()
         {
@@ -54,13 +50,17 @@ namespace ConsoleAppProject.App04
         }
 
         /// <summary>
-        /// 
+        /// method which adds comment 
         /// </summary>
         public void AddComment(String text)
         {
             comments.Add(text);
         }
 
+        /// <summary>
+        /// method which keeps track of the amount of posts being posted
+        /// </summary>
+        /// <returns></returns>
         public static int GetNumberOfPosts()
         {
             return instances;

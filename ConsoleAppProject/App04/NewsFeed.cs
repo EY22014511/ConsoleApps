@@ -63,6 +63,10 @@ namespace ConsoleAppProject.App04
             posts.Add(photo);
         }
 
+        /// <summary>
+        /// method to remove a post through its ID
+        /// </summary>
+        /// <param name="id"></param>
         public void RemovePost(int id)
         {
             Post post = FindPost(id);
@@ -88,6 +92,11 @@ namespace ConsoleAppProject.App04
             }
         }
 
+        /// <summary>
+        /// method to find a post by using their ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Post FindPost(int id)
         {
             foreach (Post post in posts)
@@ -101,6 +110,11 @@ namespace ConsoleAppProject.App04
             return null;
         }
 
+        /// <summary>
+        /// method to locate a post by a certain author
+        /// </summary>
+        /// <param name="author"></param>
+        /// <returns></returns>
         public Post FindPostByUser(string author)
         {
             int counter = 0;

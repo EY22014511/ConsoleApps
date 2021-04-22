@@ -6,6 +6,10 @@ namespace ConsoleAppProject.App04
     public class NetworkApp
     {
         private NewsFeed news = new NewsFeed();
+
+        /// <summary>
+        /// Displays a menu for the user to select their choice
+        /// </summary>
         public void DisplayMenu()
         {
             ConsoleHelper.OutputHeading("     Edrick's News Feed");
@@ -38,6 +42,9 @@ namespace ConsoleAppProject.App04
             } while (!wantToQuit);
         }
 
+        /// <summary>
+        /// a method which Removes a post
+        /// </summary>
         private void RemovePost()
         {
             ConsoleHelper.OutputTitle($"Removing a Post");
@@ -48,6 +55,9 @@ namespace ConsoleAppProject.App04
             news.RemovePost(id);
         }
 
+        /// <summary>
+        /// a method which Unlikes a psot
+        /// </summary>
         private void UnlikePost()
         {
             ConsoleHelper.OutputTitle("Unliking a Post");
@@ -56,6 +66,9 @@ namespace ConsoleAppProject.App04
             post.Unlike();
         }
 
+        /// <summary>
+        /// a method which likes a post
+        /// </summary>
         private void LikePost()
         {
             ConsoleHelper.OutputTitle("Liking a Post");
@@ -64,6 +77,9 @@ namespace ConsoleAppProject.App04
             post.Like();
         }
 
+        /// <summary>
+        /// method to find the post by its ID
+        /// </summary>
         public Post FindPost()
         {
             int postID;
@@ -71,6 +87,9 @@ namespace ConsoleAppProject.App04
             return news.FindPost(postID);
         }
 
+        /// <summary>
+        /// a method to add a comment to a post
+        /// </summary>
         private void AddComment()
         {
             ConsoleHelper.OutputTitle("Adding a Comment");
@@ -82,6 +101,9 @@ namespace ConsoleAppProject.App04
             post.AddComment(comment);
         }
 
+        /// <summary>
+        /// method to display all posts by a certain author
+        /// </summary>
         private void DisplayByAuthor()
         {
             Console.WriteLine("Who'a posts do you want to see? > ");
@@ -90,11 +112,17 @@ namespace ConsoleAppProject.App04
             news.FindPostByUser(author);
         }
 
+        /// <summary>
+        /// a mtheod to display all the posts
+        /// </summary>
         private void DisplayAll()
         {
             news.Display();
         }
 
+        /// <summary>
+        /// a method to post an image with a caption
+        /// </summary>
         private void PostImage()
         {
             ConsoleHelper.OutputTitle("Posting an Image/Photo");
@@ -114,6 +142,9 @@ namespace ConsoleAppProject.App04
             post.Display();
         }
 
+        /// <summary>
+        /// a method to post a message
+        /// </summary>
         private void PostMessage()
         {
             ConsoleHelper.OutputTitle("Posting a Message");
@@ -130,6 +161,10 @@ namespace ConsoleAppProject.App04
             post.Display();
         }
 
+        /// <summary>
+        /// a method to allow the user to set their name as an author of a post
+        /// </summary>
+        /// <returns></returns>
         private string InputName()
         {
             Console.Write(" Please enter your name > ");
