@@ -4,6 +4,10 @@ namespace ConsoleAppProject.App04
 {
     public class Post
     {
+        public int PostId { get; }
+
+        private static int instances = 0;
+
         private int likes;
         private readonly List<String> comments;
 
@@ -19,6 +23,10 @@ namespace ConsoleAppProject.App04
         /// </summary>
         public Post(string author)
         {
+            instances++;
+            PostId = instances;
+            
+            
             this.Username = author;
             Timestamp = DateTime.Now;
 
@@ -51,6 +59,11 @@ namespace ConsoleAppProject.App04
         public void AddComment(String text)
         {
             comments.Add(text);
+        }
+
+        public static int GetNumberOfPosts()
+        {
+            return instances;
         }
 
         ///<summary>

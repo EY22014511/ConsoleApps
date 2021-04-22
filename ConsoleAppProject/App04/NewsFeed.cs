@@ -35,6 +35,13 @@ namespace ConsoleAppProject.App04
             AddPhotoPost(photoPost);
         }
 
+        public Post post
+        {
+            get => default;
+            set
+            { }
+        }
+
 
         ///<summary>
         /// Add a text post to the news feed.
@@ -54,6 +61,64 @@ namespace ConsoleAppProject.App04
         public void AddPhotoPost(PhotoPost photo)
         {
             posts.Add(photo);
+        }
+
+        public void RemovePost(int id)
+        {
+            Post post = FindPost(id);
+
+            if (post == null)
+            {
+                Console.WriteLine($" \nPost with ID = {id} does not exist!!\n");
+            }
+            else
+            {
+                Console.WriteLine($" \nThe followint Post {id} has been removed!\n");
+
+                if (post is MessagePost mp)
+                {
+                    mp.Display();
+                }
+                else if (post is PhotoPost pp)
+                {
+                    pp.Display();   
+                }
+
+                posts.Remove(post);
+            }
+        }
+
+        public Post FindPost(int id)
+        {
+            foreach (Post post in posts)
+            {
+                if (post.PostId == id)
+                {
+                    return post;
+                }
+            }
+
+            return null;
+        }
+
+        public Post FindPostByUser(string author)
+        {
+            int counter = 0;
+
+            foreach (Post post in posts)
+            {
+                if (post.Username == author)
+                {
+                    post.Display();
+                    Console.WriteLine();
+                    counter++;
+                }
+                if (counter == 0)
+                {
+                    Console.WriteLine("A user has not been found");
+                }
+            }
+            return null;
         }
 
         ///<summary>

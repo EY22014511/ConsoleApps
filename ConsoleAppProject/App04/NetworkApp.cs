@@ -43,17 +43,28 @@ namespace ConsoleAppProject.App04
 
         private void RemovePost()
         {
-            throw new NotImplementedException();
+            ConsoleHelper.OutputTitle($"Removing a Post");
+
+            int id = (int)ConsoleHelper.InputNumber(" Please enter the post id > ", 
+                                                        1, Post.GetNumberOfPosts());
+
+            news.RemovePost(id);
         }
 
         private void UnlikePost()
         {
-            throw new NotImplementedException();
+            ConsoleHelper.OutputTitle("Unliking a Post");
+            Post post = FindPost();
+
+            post.Unlike();
         }
 
         private void LikePost()
         {
-            throw new NotImplementedException();
+            ConsoleHelper.OutputTitle("Liking a Post");
+            Post post = FindPost();
+
+            post.Like();
         }
 
         private void AddComment()
@@ -78,12 +89,45 @@ namespace ConsoleAppProject.App04
 
         private void PostImage()
         {
-            throw new NotImplementedException();
+            ConsoleHelper.OutputTitle("Posting an Image/Photo");
+
+            string author = InputName();
+
+            Console.Write(" Please enter your image filename > ");
+            string filename = Console.ReadLine();
+
+            Console.Write(" Please enter your image caption > ");
+            string caption = Console.ReadLine();
+
+            PhotoPost post = new PhotoPost(author, filename, caption);
+            news.AddPhotoPost(post);
+
+            ConsoleHelper.OutputTitle("You have just posted this image: ");
+            post.Display();
         }
 
         private void PostMessage()
         {
-            throw new NotImplementedException();
+            ConsoleHelper.OutputTitle("Posting a Message");
+
+            string author = InputName();
+
+            Console.Write(" Please enter your message > ");
+            string message = Console.ReadLine();
+
+            MessagePost post = new MessagePost(author, message);
+            news.AddMessagePost(post);
+
+            ConsoleHelper.OutputTitle("You have just posted this message: ");
+            post.Display();
+        }
+
+        private string InputName()
+        {
+            Console.Write(" Please enter your name > ");
+            string author = Console.ReadLine();
+
+            return author;
         }
     }
 }
