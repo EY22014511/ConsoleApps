@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using ConsoleAppProject.Helpers;
 
 namespace ConsoleAppProject.App04
@@ -31,12 +29,11 @@ namespace ConsoleAppProject.App04
                     case 2: PostImage(); break;
                     case 3: DisplayAll(); break;
                     case 4: DisplayByAuthor(); break;
-                    case 5: DisplayByDate(); break;
-                    case 6: AddComment(); break;
-                    case 7: LikePost(); break;
-                    case 8: UnlikePost(); break;
-                    case 9: RemovePost(); break;
-                    case 10: wantToQuit = true; break;
+                    case 5: AddComment(); break;
+                    case 6: LikePost(); break;
+                    case 7: UnlikePost(); break;
+                    case 8: RemovePost(); break;
+                    case 9: wantToQuit = true; break;
                 }
             } while (!wantToQuit);
         }
@@ -67,19 +64,30 @@ namespace ConsoleAppProject.App04
             post.Like();
         }
 
-        private void AddComment()
+        public Post FindPost()
         {
-            throw new NotImplementedException();
+            int postID;
+            postID = (int)ConsoleHelper.InputNumber("Enter the ID of the post");
+            return news.FindPost(postID);
         }
 
-        private void DisplayByDate()
+        private void AddComment()
         {
-            throw new NotImplementedException();
+            ConsoleHelper.OutputTitle("Adding a Comment");
+            Post post = FindPost();
+            post.Display();
+
+            Console.WriteLine("Enter Comment > ");
+            string comment = Console.ReadLine();
+            post.AddComment(comment);
         }
 
         private void DisplayByAuthor()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Who'a posts do you want to see? > ");
+            string author = Console.ReadLine();
+
+            news.FindPostByUser(author);
         }
 
         private void DisplayAll()

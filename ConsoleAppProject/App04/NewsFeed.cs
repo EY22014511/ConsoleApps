@@ -115,7 +115,7 @@ namespace ConsoleAppProject.App04
                 }
                 if (counter == 0)
                 {
-                    Console.WriteLine("A user has not been found");
+                    Console.WriteLine("User was not found!");
                 }
             }
             return null;
